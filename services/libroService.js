@@ -1,8 +1,3 @@
-// ============================================================
-// ARCHIVO: services/libroService.js
-// PROPÓSITO: Validaciones y normalización de datos
-// ============================================================
-
 function validarDatos(body) {
     const { titulo, autor, anio_publicacion, genero } = body;
 

@@ -1,0 +1,57 @@
+Documento Script base de datos (Fernando Morales)
+
+Lo exportado desde phpmyadmin:
+
+===Base de datos biblioteca_db
+
+== Estructura de tabla para la tabla libros
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**id**//|int(11)|No|
+|titulo|varchar(200)|No|
+|autor|varchar(150)|No|
+|anio_publicacion|int(11)|No|
+|genero|varchar(50)|No|
+|disponible|tinyint(1)|Sí|1
+|created_at|timestamp|No|current_timestamp()
+|updated_at|timestamp|No|current_timestamp()
+== Volcado de datos para la tabla libros
+
+|1|Cien años de soledad|Gabriel García Márquez|1967|Realismo mágico|1|2026-05-26 11:26:02|2026-05-26 11:26:02
+|2|El Quijote|Miguel de Cervantes|1605|Novela|1|2026-05-26 11:26:02|2026-05-26 11:26:02
+|3|La sombra del viento|Carlos Ruiz Zafón|2001|Misterio|1|2026-05-26 11:26:02|2026-05-26 11:26:02
+|4|1984|George Orwell|1949|Ciencia ficción|0|2026-05-26 11:26:02|2026-05-26 11:26:02
+|5|El principito|Antoine de Saint-Exupéry|1943|Infantil|1|2026-05-26 11:26:02|2026-05-26 11:26:02
+
+
+
+
+Script desde como se creo:
+
+-- Crear la base de datos 
+CREATE DATABASE IF NOT EXISTS biblioteca_db
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+-- Crear la tabla 'libros'
+CREATE TABLE libros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    autor VARCHAR(150) NOT NULL,
+    anio_publicacion INT NOT NULL,
+    genero VARCHAR(50) NOT NULL,
+    disponible BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Insertar datos
+INSERT INTO libros (titulo, autor, anio_publicacion, genero, disponible) VALUES
+('Cien años de soledad', 'Gabriel García Márquez', 1967, 'Realismo mágico', TRUE),
+('El Quijote', 'Miguel de Cervantes', 1605, 'Novela', TRUE),
+('La sombra del viento', 'Carlos Ruiz Zafón', 2001, 'Misterio', TRUE),
+('1984', 'George Orwell', 1949, 'Ciencia ficción', FALSE),
+('El principito', 'Antoine de Saint-Exupéry', 1943, 'Infantil', TRUE);
+

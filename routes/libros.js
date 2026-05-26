@@ -5,7 +5,7 @@ const router = express.Router();
 const librosController = require('../controllers/librosController');
 
 // Importar middlewares
-const { verificarSesion } = require('../middlewares/authMiddleware');
+const { verificarApiKey } = require('../middlewares/authMiddleware');
 const { loggerMiddleware } = require('../middlewares/loggerMiddleware');
 
 // ============================================================
@@ -24,12 +24,10 @@ router.get('/:id', loggerMiddleware, librosController.obtenerLibro);
 // ============================================================
 
 // POST /api/libros - Crear un nuevo libro
-router.post('/', verificarSesion, librosController.crearLibro);
+router.post('/', verificarApiKey, librosController.crearLibro);
 
-// PUT /api/libros/:id - Actualizar un libro existente
-router.put('/:id', verificarSesion, librosController.actualizarLibro);
+router.put('/:id', verificarApiKey, librosController.actualizarLibro);
 
-// DELETE /api/libros/:id - Eliminar un libro
-router.delete('/:id', verificarSesion, librosController.eliminarLibro);
+router.delete('/:id', verificarApiKey, librosController.eliminarLibro);
 
 module.exports = router;

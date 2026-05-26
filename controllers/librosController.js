@@ -142,8 +142,9 @@ async function crearLibro(req, res) {
             });
         }
 
+        
         // 2. Crear el libro en la base de datos
-const nuevoLibro = await LibroModel.crear(datosLibro);
+        const nuevoLibro = await LibroModel.crear(datosLibro);
 
         // 3. Responder con código 201 (Created)
         res.status(201).json({

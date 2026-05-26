@@ -33,3 +33,5 @@ async function verificarConexion() {
         process.exit(1); // Detiene la aplicación si no hay base de datos
     }
 }
+
+module.exports = poolPromise;

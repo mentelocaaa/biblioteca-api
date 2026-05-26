@@ -32,3 +32,4 @@ router.put('/:id', verificarSesion, librosController.actualizarLibro);
 // DELETE /api/libros/:id - Eliminar un libro
 router.delete('/:id', verificarSesion, librosController.eliminarLibro);
 
+module.exports = router;
